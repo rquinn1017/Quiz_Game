@@ -102,3 +102,22 @@ incrementScore = num => {
 };
 
 startGame();
+
+const timeEl = document.querySelector(".time");
+
+let secondsLeft = 10;
+
+function setTime() {
+  let timerInterval = setInterval(function() {
+    secondsLeft--;
+    timeEl.textContent = secondsLeft + " seconds remaining";
+
+    if(secondsLeft === 0) {
+      clearInterval(timerInterval);
+      return window.location.assign("end.html");
+    }
+
+  }, 1000);
+}
+
+setTime();
