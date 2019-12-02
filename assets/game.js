@@ -124,10 +124,9 @@ choices.forEach(choice => {
 
     else if (classToApply === "incorrect"){
       secondsLeft = (secondsLeft-15);
-      console.log(secondsLeft-15);
     }
 
-console.log(secondsLeft);
+
   
 
     selectedChoice.parentElement.classList.add(classToApply);
