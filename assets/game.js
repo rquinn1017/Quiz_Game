@@ -8,6 +8,24 @@ let acceptingAnswers = false;
 let score = 0;
 let questionCounter = 0;
 let availableQuesions = [];
+let secondsLeft = 60;
+const timeEl = document.querySelector(".time");
+
+function setTime() {
+  let timerInterval = setInterval(function() {
+    secondsLeft--;
+    timeEl.textContent = secondsLeft + " seconds remaining";
+
+    if(secondsLeft === 0) {
+      clearInterval(timerInterval);
+      localStorage.setItem("mostRecentScore", score);
+      return window.location.assign("end.html");
+    }
+
+  }, 1000);
+}
+
+
 
 let questions = [
   {
@@ -34,12 +52,28 @@ let questions = [
     choice3: "msg('Hello World');",
     choice4: "alert('Hello World');",
     answer: 4
+  },
+  {
+    question: " Which event occurs when the user clicks on an HTML element?",
+    choice1: "onmouseclick",
+    choice2: "onclick",
+    choice3: "onmouseover",
+    choice4: "onchange",
+    answer: 2
+  },
+  {
+    question: " What is the correct way to write a JavaScript array?",
+    choice1:  "var colors = ['red', 'green', 'blue']",
+    choice2: "var colors = (1:'red', 2:'green', 3:'blue')",
+    choice3: "var colors = 'red', 'green', 'blue'",
+    choice4: "var colors = 1 = ('red'), 2 = ('green'), 3 = ('blue')",
+    answer: 1
   }
 ];
 
 //CONSTANTS
 const CORRECT_BONUS = 10;
-const MAX_QUESTIONS = 3;
+const MAX_QUESTIONS = 5;
 
 startGame = () => {
   questionCounter = 0;
@@ -82,10 +116,19 @@ choices.forEach(choice => {
 
     const classToApply =
       selectedAnswer == currentQuestion.answer ? "correct" : "incorrect";
-
+    
+   
     if (classToApply === "correct") {
-      incrementScore(CORRECT_BONUS);
+      incrementScore(CORRECT_BONUS*secondsLeft);
     }
+
+    else if (classToApply === "incorrect"){
+      secondsLeft = (secondsLeft-15);
+      console.log(secondsLeft-15);
+    }
+
+console.log(secondsLeft);
+  
 
     selectedChoice.parentElement.classList.add(classToApply);
 
@@ -102,22 +145,5 @@ incrementScore = num => {
 };
 
 startGame();
-
-const timeEl = document.querySelector(".time");
-
-let secondsLeft = 10;
-
-function setTime() {
-  let timerInterval = setInterval(function() {
-    secondsLeft--;
-    timeEl.textContent = secondsLeft + " seconds remaining";
-
-    if(secondsLeft === 0) {
-      clearInterval(timerInterval);
-      return window.location.assign("end.html");
-    }
-
-  }, 1000);
-}
-
 setTime();
+
