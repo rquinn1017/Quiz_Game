@@ -26,7 +26,6 @@ function setTime() {
 }
 
 
-
 let questions = [
   {
     question: "Inside which HTML element do we put the JavaScript??",
@@ -125,9 +124,6 @@ choices.forEach(choice => {
     else if (classToApply === "incorrect"){
       secondsLeft = (secondsLeft-15);
     }
-
-
-  
 
     selectedChoice.parentElement.classList.add(classToApply);
 
