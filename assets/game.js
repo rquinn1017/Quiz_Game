@@ -16,7 +16,7 @@ function setTime() {
     secondsLeft--;
     timeEl.textContent = secondsLeft;
 
-    if(secondsLeft === 0) {
+    if(secondsLeft <= 0) {
       clearInterval(timerInterval);
       localStorage.setItem("mostRecentScore", score);
       return window.location.assign("end.html");
