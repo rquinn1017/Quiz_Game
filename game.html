@@ -9,8 +9,24 @@
     <link rel="stylesheet" href="assets/style.css" />
   </head>
   <body>
-    
-     <div class="container">
+      <div  class = "nav-wrapper">
+          <!-- <div class= "container-fluid"> -->
+              <nav class="navbar navbar-expand-md navbar-light bg-light">
+                 <!-- <span class="navbar-brand mb-1 h1">Rob Quinn</span>  -->
+                 <div id="hud-item">
+                    <p class="hud-prefix">
+                      Time Remaining
+                    </p>
+                    <h1 class="hud-main-text" id="timeRemaining">
+                      60
+                    </h1>
+                  </div>
+              </nav>
+          <!-- </div> -->
+      </div>
+
+
+     <div class="game">
       <div id="game" class="justify-center flex-column">
         <div id="hud">
           <div id="hud-item">
@@ -20,14 +36,6 @@
             <div id="progressBar">
               <div id="progressBarFull"></div>
             </div>
-          </div>
-          <div id="hud-item">
-            <p class="hud-prefix">
-              Time Remaining
-            </p>
-            <h1 class="hud-main-text" id="timeRemaining">
-              60
-            </h1>
           </div>
           <div id="hud-item">
             <p class="hud-prefix">

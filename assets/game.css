@@ -61,3 +61,19 @@
     background-color: #56a5eb;
     width: 0%;
   }
+
+  .nav-wrapper {
+    margin-top: 2rem;
+  }
+  
+  .game {
+        width: 100vw;
+      height: 100vh;
+      display: block;
+      justify-content: center;
+      align-items: center;
+      max-width: 80rem;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+  
