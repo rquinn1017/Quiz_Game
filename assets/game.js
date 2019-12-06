@@ -9,12 +9,12 @@ let score = 0;
 let questionCounter = 0;
 let availableQuesions = [];
 let secondsLeft = 60;
-const timeEl = document.querySelector(".time");
+const timeEl = document.querySelector("#timeRemaining");
 
 function setTime() {
   let timerInterval = setInterval(function() {
     secondsLeft--;
-    timeEl.textContent = secondsLeft + " seconds remaining";
+    timeEl.textContent = secondsLeft;
 
     if(secondsLeft === 0) {
       clearInterval(timerInterval);
